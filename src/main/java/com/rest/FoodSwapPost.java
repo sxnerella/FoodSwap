@@ -14,6 +14,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import com.sun.jersey.api.view.Viewable;
+import com.rest.MySQLDAO;
 
 @Path("/db")
 public class FoodSwapPost {
