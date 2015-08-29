@@ -70,7 +70,7 @@ public class FoodSwapPost {
 			if(foodType != null && additionalInfo!=null ){
 				MySQLDAO dao = new MySQLDAO();
 				
-				String insertQuery="INSERT INTO food_swap (food_type,additional_info,submission_date) VALUES ("+foodType+ ","+additionalInfo+",SYSDATE())";
+				String insertQuery="INSERT INTO food_swap (food_type,additional_info,submission_date) VALUES ('"+foodType+ "','"+additionalInfo+"',SYSDATE())";
 				result = dao.executeQuery(insertQuery);
 			}else{
 				result = new HashMap<String, Object>();
@@ -99,7 +99,7 @@ public class FoodSwapPost {
 		String statusCode = "0000";
 		try{
 				MySQLDAO dao = new MySQLDAO();
-				String insertQuery="SELECT  * from food_swap where submission_date=SYSDATE() ";
+				String insertQuery="SELECT * from food_swap where submission_date=SYSDATE() ";
 				result = dao.executeQuery(insertQuery);
 		
 		}catch(Exception e){
