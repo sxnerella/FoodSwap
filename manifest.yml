@@ -1,0 +1,4 @@
+---
+applications:
+- name: FoodSwapWeb
+path: target/FoodSwap.war
