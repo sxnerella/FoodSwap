@@ -71,7 +71,6 @@ public class FoodSwapPost {
 				MySQLDAO dao = new MySQLDAO();
 				
 				String insertQuery="INSERT INTO food_swap (food_type,additional_info,submission_date,food_picked) VALUES ("+foodType+ ","+additionalInfo+",SYSDATE(),'y')";
-"
 				result = dao.executeQuery(insertQuery);
 			}else{
 				result = new HashMap<String, Object>();
