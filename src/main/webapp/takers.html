@@ -66,7 +66,12 @@
 	}
 	
     </style>
-							
+<script type="text/javascript">
+		function confirmInput(){
+			document.getElementById("result").innerHTML = "Processing Query..";
+			return true;
+		}
+	</script>							
 </head>
 
   <body data-spy="scroll" data-target=".navbar" data-offset="50">
@@ -101,19 +106,58 @@
 
 	<div class="row-fluid">
 		<div class="span12">
-			<h2>Takers</h2>			
-			<div class="row-fluid">
-				<div class="span6">
-				<ul>
-					<li>Verizon Data Services pvt.ltd.</li>
-					
-				</ul>
-				
-				</div>
-
-	 		</div>
+			<h2>Pick from Here </h2>			
+		
 		</div>
 	</div>
+<hr>
+
+
+
+<div id="main">
+		<h1>Execute DB Queries here</h1>
+		<form id="dbform"
+			action="rest/db/pickFood"
+			onsubmit="{return confirmInput()}">
+				placeholder="Hit Refresh"></textarea>
+			<br /> <input type="submit" name="Refresh"  />
+		</form>
+	</div>
+	<div>
+		Result: <span id="result">${response.message}</span>
+		<div>
+		
+			<%
+				Map<String, Object> result2 = (Map<String, Object>)request.getAttribute("response");
+				if(result2 != null && result2.get("result") != null){
+		
+						ArrayList<HashMap<String, Object>> rowList = (ArrayList<HashMap<String, Object>>)result2.get("result");
+						ArrayList<String> colList = (ArrayList<String>)result2.get("columnList");
+						boolean header = false;
+						%> <table id="ql_rest" cellspacing="0"> <tr> 
+						<%
+							for(String col: colList){
+								
+								%> <th><%= col %></th> <%
+							}
+						%> </tr> <%
+						for(HashMap<String, Object> row: rowList){
+							%> <tr> <%
+							for(String col: colList){
+								
+								%> <td><%= row.get(col) %></td> <%
+							}
+							%> </tr> <%
+						}
+						%> </table> <%
+				}
+			 %>
+
+		</div>
+
+	</div>
+
+
 
 
 		<hr>
