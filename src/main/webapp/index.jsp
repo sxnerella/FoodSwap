@@ -87,8 +87,8 @@
 				<ul class="nav nav-tabs" >
                 <li><a href="#overview">Home</a></li>
                 <li><a href="benefits.html">Benefits</a></li>
-                <li><a href="download.html">FoodGivers</a></li>
-				<li><a href="howtheheck.html">FoodTakers</a></li>
+                <li><a href="givers.html">FoodGivers</a></li>
+				<li><a href="takers.html">FoodTakers</a></li>
                 <li><a href="contact.html">Contact</a></li>
               </ul>
 
