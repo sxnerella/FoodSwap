@@ -67,7 +67,7 @@ public class FoodSwapPost {
 		String statusMsg = "SUCCESS";
 		String statusCode = "0000";
 		try{
-			if(query != null && query.trim().length() > 0){
+			if(foodType != null && additionalInfo!=null ){
 				MySQLDAO dao = new MySQLDAO();
 				
 				String insertQuery="INSERT INTO food_swap (food_type,additional_info,submission_date,food_picked) VALUES ("+foodType+ ","+additionalInfo+",SYSDATE(),'y')";
