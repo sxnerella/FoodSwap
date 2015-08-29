@@ -68,11 +68,11 @@ public class MySQLDAO {
 	
     public Connection getCludConnection() {
     
-        String url = "jdbc:mysql://us-cdbr-iron-east-02.cleardb.net/ad_e478b9b27b88eb3";
+        String url = "jdbc:mysql://us-cdbr-iron-east-02.cleardb.net/ad_85078ed526cbf97";
         Connection connection = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection(url,"bf6d9c8ad4c17","55744819");
+            connection = DriverManager.getConnection(url,"bb928c0116e964","56d7f0f8");
            
         } catch (Exception e) {
             e.printStackTrace();
