@@ -70,7 +70,7 @@ public class FoodSwapPost {
 			if(foodType != null && additionalInfo!=null ){
 				MySQLDAO dao = new MySQLDAO();
 				
-				String insertQuery="INSERT INTO food_swap (food_type,additional_info,submission_date,food_picked) VALUES ("+foodType+ ","+additionalInfo+",SYSDATE(),'y')";
+				String insertQuery="INSERT INTO food_swap (food_type,additional_info,submission_date) VALUES ("+foodType+ ","+additionalInfo+",SYSDATE())";
 				result = dao.executeQuery(insertQuery);
 			}else{
 				result = new HashMap<String, Object>();
@@ -86,7 +86,7 @@ public class FoodSwapPost {
 		request.setAttribute("foodType", foodType);
 		request.setAttribute("additionalInfo", additionalInfo);
 		request.setAttribute("response", result);
-		return new Viewable("/givers.html");
+		return new Viewable("/givers.jsp");
 	}
 	
 	@GET
@@ -110,7 +110,7 @@ public class FoodSwapPost {
 		}
 		
 		request.setAttribute("response", result);
-		return new Viewable("/takers.html");
+		return new Viewable("/takers.jsp");
 	}
 	
 }
