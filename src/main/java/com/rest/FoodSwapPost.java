@@ -56,4 +56,36 @@ public class FoodSwapPost {
 	
 		return new Viewable("/db.jsp");
 	}
+	
+	
+	@GET
+	@Path("/postFood")
+	@Produces(MediaType.TEXT_HTML)
+	public void submitQuery(@QueryParam("foodType") String query, @QueryParam("additionalInfo") String query) {
+	
+		Map<String, Object> result = null;
+		String statusMsg = "SUCCESS";
+		String statusCode = "0000";
+		try{
+			if(query != null && query.trim().length() > 0){
+				MySQLDAO dao = new MySQLDAO();
+				
+				String insertQuery="INSERT INTO food_swap (food_type,additional_info,submission_date,food_picked) VALUES ("+foodType+ ","+additionalInfo+",SYSDATE(),'y')";
+"
+				result = dao.executeQuery(insertQuery);
+			}else{
+				result = new HashMap<String, Object>();
+				result.put("message", "Enter valid SQL query to execute.");
+				result.put("queryValid", false);
+			}
+		}catch(Exception e){
+			 e.printStackTrace();
+	        
+	         statusMsg = "FAILURE: "+e.getMessage();
+	 		 statusCode = "0006";
+		}
+		request.setAttribute("query", query);
+		request.setAttribute("response", result);
+	
+	}
 }
