@@ -86,7 +86,7 @@ public class FoodSwapPost {
 		request.setAttribute("foodType", foodType);
 		request.setAttribute("additionalInfo", additionalInfo);
 		request.setAttribute("response", result);
-		return new Viewable("/givers.jsp");
+		return new Viewable("/givers.html");
 	}
 	
 	@GET
@@ -110,7 +110,7 @@ public class FoodSwapPost {
 		}
 		
 		request.setAttribute("response", result);
-		return new Viewable("/takers.jsp");
+		return new Viewable("/takers.html");
 	}
 	
 }
