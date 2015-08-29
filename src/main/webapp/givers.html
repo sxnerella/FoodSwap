@@ -142,12 +142,12 @@
 
 <div id="main">
 		<form id="dbform"
-			action="${pageContext.request.contextPath}/rest/db/postFood"
+			action="/rest/db/postFood"
 			onsubmit="{return confirmInput()}">
-			<textarea rows="12" cols="70" name="query"
-				placeholder="Waht is it? ">${foodType}</textarea>
-				<textarea rows="12" cols="70" name="query"
-				placeholder="Where to Pick ?">${additionalInfo}</textarea>
+			<textarea rows="1" cols="100" name="query"
+				placeholder="Waht is it? "></textarea>
+				<textarea rows="1" cols="100" name="query"
+				placeholder="Where to Pick ?"></textarea>
 			<br /> <input type="submit" />
 		</form>
 	</div>
