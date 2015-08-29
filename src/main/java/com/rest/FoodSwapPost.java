@@ -27,7 +27,7 @@ public class FoodSwapPost {
 		
 		return new Viewable("/db.jsp");
 	}
-	
+
 	@GET
 	@Path("/submitQuery")
 	@Produces(MediaType.TEXT_HTML)
@@ -61,7 +61,7 @@ public class FoodSwapPost {
 	@GET
 	@Path("/postFood")
 	@Produces(MediaType.TEXT_HTML)
-	public Viewable submitQuery(@QueryParam("foodType") String foodType, @QueryParam("additionalInfo") String additionalInfo) {
+	public Viewable postFood(@QueryParam("foodType") String foodType, @QueryParam("additionalInfo") String additionalInfo) {
 	
 		Map<String, Object> result = null;
 		String statusMsg = "SUCCESS";
@@ -92,7 +92,7 @@ public class FoodSwapPost {
 	@GET
 	@Path("/pickFood")
 	@Produces(MediaType.TEXT_HTML)
-	public Viewable submitQuery() {
+	public Viewable pickFood() {
 	
 		Map<String, Object> result = null;
 		String statusMsg = "SUCCESS";
