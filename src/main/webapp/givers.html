@@ -98,48 +98,8 @@
 
 	</div>
       <!-- Example row of columns -->
-
-	<div class="row-fluid">
-		<div class="span12">
-		<div id="myModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
-<div class="modal-dialog modal-sm">
-    <div class="modal-content">
-        <div class="modal-header">            
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title">Post Form</h4>
-        </div>
-        <div class="modal-body">
-<form id="myform2" data-toggle="validator" class="form-horizontal" role="form" method="GET" action="#">
-		<div class="form-group">
-			<div class="col-md-12">
-				<label class="control-label popup-label">What is it? </label>
-				<input required type="text" class="form-control" name="foodPost">
-			</div>
-		</div>
-		<div class="form-group">
-			<div class="col-md-12">
-				<label class="control-label popup-label">Additional Details</label>
-				<input required type="text" class="form-control" name="additionalInfo" >
-			</div>
-		</div>
-		
-		<div class="modal-footer">
-			<button type="submit" class="btn btn-primary">Post</button>
-			<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-		</div>
-	</form>
-        </div>
-    </div>
-</div>
-</div>       
-            
-            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Click Here to Post</button>
-			
-		</div>
-	</div>
-
+<hr>
+<h2>Post Here</h2>
 <div id="main">
 		<form id="dbform"
 			action="/rest/db/postFood"
@@ -152,7 +112,6 @@
 		</form>
 	</div>
 	<div>
-		Result: <span id="result">${response.message}</span>
 Result: <span id="result">${response.message}</span>
 
 		<hr>
@@ -166,35 +125,12 @@ Result: <span id="result">${response.message}</span>
     </div> <!-- /container -->
     
     <script>
- $('#myModal').on('hidden.bs.modal', function(){
-            $(this).removeData('bs.modal');
-            $('#myform2').bootstrapValidator('resetForm', true);
-        });
-
-$('#myform2').bootstrapValidator({
-			// To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
-			icon: {
-				valid: 'glyphicon glyphicon-ok',
-				invalid: 'glyphicon glyphicon-remove',
-				validating: 'glyphicon glyphicon-refresh'
-			},
-           excluded: [':disabled'],
-			fields: {
-				full_name: {
-					validators: {
-						notEmpty: {
-							message: 'The Full Name field is required'
-						},
-						stringLength: {
-							min: 5,
-							max: 15,
-							message: 'The Full Name must be more than 5 and less than 15 characters long'
-						},
-					}
-				}
-			}      
-		});
-		
+<script type="text/javascript">
+		function confirmInput(){
+			document.getElementById("result").innerHTML = "Processing Query..";
+			return true;
+		}
+	</script>
 		</script>
   </body>
 </html>
