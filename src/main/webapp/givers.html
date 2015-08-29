@@ -111,7 +111,7 @@
                 <h4 class="modal-title">Post Form</h4>
         </div>
         <div class="modal-body">
-<form id="myform2" data-toggle="validator" class="form-horizontal" role="form" method="GET" action="rest/db/postFood">
+<form id="myform2" data-toggle="validator" class="form-horizontal" role="form" method="GET" action="#">
 		<div class="form-group">
 			<div class="col-md-12">
 				<label class="control-label popup-label">What is it? </label>
@@ -140,6 +140,19 @@
 		</div>
 	</div>
 
+<div id="main">
+		<form id="dbform"
+			action="${pageContext.request.contextPath}/rest/db/postFood"
+			onsubmit="{return confirmInput()}">
+			<textarea rows="12" cols="70" name="query"
+				placeholder="Waht is it? ">${foodType}</textarea>
+				<textarea rows="12" cols="70" name="query"
+				placeholder="Where to Pick ?">${additionalInfo}</textarea>
+			<br /> <input type="submit" />
+		</form>
+	</div>
+	<div>
+		Result: <span id="result">${response.message}</span>
 Result: <span id="result">${response.message}</span>
 
 		<hr>
