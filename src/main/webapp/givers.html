@@ -111,17 +111,17 @@
                 <h4 class="modal-title">Post Form</h4>
         </div>
         <div class="modal-body">
-<form id="myform2" data-toggle="validator" class="form-horizontal" role="form" method="POST" action="#">
+<form id="myform2" data-toggle="validator" class="form-horizontal" role="form" method="POST" action="${pageContext.request.contextPath}/db/foodPost">
 		<div class="form-group">
 			<div class="col-md-12">
 				<label class="control-label popup-label">What is it? </label>
-				<input required type="text" class="form-control" name="full_name">
+				<input required type="text" class="form-control" name="foodPost">
 			</div>
 		</div>
 		<div class="form-group">
 			<div class="col-md-12">
 				<label class="control-label popup-label">Additional Details</label>
-				<input required type="text" class="form-control" name="username" >
+				<input required type="text" class="form-control" name="additionalInfo" >
 			</div>
 		</div>
 		
