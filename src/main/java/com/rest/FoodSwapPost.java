@@ -88,4 +88,29 @@ public class FoodSwapPost {
 		request.setAttribute("response", result);
 		return new Viewable("/givers.html");
 	}
+	
+	@GET
+	@Path("/pickFood")
+	@Produces(MediaType.TEXT_HTML)
+	public Viewable submitQuery() {
+	
+		Map<String, Object> result = null;
+		String statusMsg = "SUCCESS";
+		String statusCode = "0000";
+		try{
+				MySQLDAO dao = new MySQLDAO();
+				String insertQuery="SELECT  * from food_swap where submission_date=SYSDATE() ";
+				result = dao.executeQuery(insertQuery);
+		
+		}catch(Exception e){
+			 e.printStackTrace();
+	        
+	         statusMsg = "FAILURE: "+e.getMessage();
+	 		 statusCode = "0006";
+		}
+		
+		request.setAttribute("response", result);
+		return new Viewable("/takers.html");
+	}
+	
 }
