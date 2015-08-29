@@ -16,7 +16,7 @@
 	<div id="main">
 		<h1>Execute DB Queries here</h1>
 		<form id="dbform"
-			action="${pageContext.request.contextPath}/db/submitQuery"
+			action="${pageContext.request.contextPath}/rest/db/submitQuery"
 			onsubmit="{return confirmInput()}">
 			<textarea rows="12" cols="70" name="query"
 				placeholder="Entery Your Query Here">${query}</textarea>
