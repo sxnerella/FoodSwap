@@ -59,7 +59,12 @@
 	  top: 0;
 	}
     </style>
-							
+<script type="text/javascript">
+		function confirmInput(){
+			document.getElementById("result").innerHTML = "Processing Query..";
+			return true;
+		}
+	</script>							
 </head>
 
   <body data-spy="scroll" data-target=".navbar" data-offset="50">
@@ -86,9 +91,9 @@
       <!-- Example row of columns -->
 <hr>
 <h2>Post Here</h2>
- </div> <!-- /container -->
+
  
-<div id="main">
+		<div id="main">
 		<form id="dbform"
 			action="/rest/db/postFood"
 			onsubmit="{return confirmInput()}">
@@ -98,9 +103,9 @@
 				placeholder="Where to Pick ?"></textarea>
 			<br /> <input type="submit" />
 		</form>
-	</div>
-	<div>
-Result: <span id="result">${response.message}</span>
+		</div>
+		<div>
+		<span id="result"></span>
 
     		<hr>
         <div class="footer">
@@ -110,12 +115,7 @@ Result: <span id="result">${response.message}</span>
   			
     	  </div>
   
-<script type="text/javascript">
-		function confirmInput(){
-			document.getElementById("result").innerHTML = "Processing Query..";
-			return true;
-		}
-	</script>
+ </div> <!-- /container -->
 	
   </body>
 </html>
