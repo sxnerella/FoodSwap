@@ -61,7 +61,7 @@ public class FoodSwapPost {
 	@GET
 	@Path("/postFood")
 	@Produces(MediaType.TEXT_HTML)
-	public void submitQuery(@QueryParam("foodType") String query, @QueryParam("additionalInfo") String query) {
+	public void submitQuery(@QueryParam("foodType") String foodType, @QueryParam("additionalInfo") String additionalInfo) {
 	
 		Map<String, Object> result = null;
 		String statusMsg = "SUCCESS";
@@ -83,7 +83,7 @@ public class FoodSwapPost {
 	         statusMsg = "FAILURE: "+e.getMessage();
 	 		 statusCode = "0006";
 		}
-		request.setAttribute("query", query);
+		
 		request.setAttribute("response", result);
 	
 	}
