@@ -24,7 +24,7 @@ public class FoodSwapPost {
 	@GET 
 	@Produces(MediaType.TEXT_HTML)
 	public Viewable getDBPage() {
-		TLogger.logInfo("DBService", "getDBPage", "Entry & Exit");
+		
 		return new Viewable("/db.jsp");
 	}
 	
