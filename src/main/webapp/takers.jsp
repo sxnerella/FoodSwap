@@ -97,7 +97,7 @@
 		</form>
 	</div>
 	<div>
-		Result: <span id="result"></span>
+	<span id="result"></span>
 		<div>
 		
 			<%
@@ -107,7 +107,7 @@
 						ArrayList<HashMap<String, Object>> rowList = (ArrayList<HashMap<String, Object>>)result2.get("result");
 						ArrayList<String> colList = (ArrayList<String>)result2.get("columnList");
 						boolean header = false;
-						%> <table id="ql_rest" cellspacing="0"> <tr> 
+						%> <div class="table-responsive"><table id="ql_rest" cellspacing="0"> <tr> 
 						<%
 							for(String col: colList){
 								
@@ -122,7 +122,7 @@
 							}
 							%> </tr> <%
 						}
-						%> </table> <%
+						%> </table></div> <%
 				}
 
 			 %>
