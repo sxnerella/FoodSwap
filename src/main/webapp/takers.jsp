@@ -128,8 +128,12 @@
 							for(String col: colList){
 								
 								%> <td><%= row.get(col) %></td> <%
-							}
-							%> </tr> <%
+							} 
+							
+						
+							
+							
+							%>	<td><div align="center"><a href="edit_ingredient.jsp?ingredient_slno=<%=ingredient_slno%>">Pick</a></div></td> </tr> <%
 						}
 						%> </table></div> <%
 				}
