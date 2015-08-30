@@ -16,14 +16,14 @@
 	<div id="main">
 		<h1>Execute DB Queries here</h1>
 		<form id="dbform"
-			action="rest/db/submitQuery"
+			action="${pageContext.request.contextPath}/rest/db/pickFood"
 			onsubmit="{return confirmInput()}">
-			
+		
 			<br /> <input type="submit" />
 		</form>
 	</div>
 	<div>
-		Result: <span id="result">${response.message}</span>
+		Result: <span id="result"></span>
 		<div>
 		
 			<%
@@ -50,6 +50,7 @@
 						}
 						%> </table> <%
 				}
+
 			 %>
 
 		</div>
