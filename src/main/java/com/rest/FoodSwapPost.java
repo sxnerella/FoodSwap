@@ -8,13 +8,10 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
-import com.sun.jersey.spi.resource.Singleton;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.json.JSONException;
+
 import com.sun.jersey.api.view.Viewable;
 import com.rest.dao.MySQLDAO;
 
@@ -93,30 +90,18 @@ public class FoodSwapPost {
 	
 	@GET
 	@Path("/pickFood")
-	@Produces("application/json")
-	public JSONArray pickFood() {
+	@Produces(MediaType.TEXT_HTML)
+	public Viewable pickFood() {
 	
 		Map<String, Object> result = null;
 		String statusMsg = "SUCCESS";
 		String statusCode = "0000";
-		JSONArray json = new JSONArray();
+	
 		try{
 				MySQLDAO dao = new MySQLDAO();
 				String insertQuery="SELECT * from food_swap where submission_date=SYSDATE() ";
 				result = dao.executeQuery(insertQuery);
-		ArrayList<HashMap<String, Object>> rowList = (ArrayList<HashMap<String, Object>>)result.get("result");
 	
-		for(int i=0;i<rowList.size();i++){
-		JSONObject obj = new JSONObject();
-      		for (HashMap<String, Object> row: rowList) {
-      		
-        	obj.put("food_swap_id", row.get("food_swap_id"));
-         	obj.put("food_type", row.get("food_type"));
-       		obj.put("additional_info", row.get("additional_info"));
-			 }
-      		json.put(obj);}
-		
-		
 		}catch(Exception e){
 			 e.printStackTrace();
 	        
@@ -124,8 +109,10 @@ public class FoodSwapPost {
 	 		 statusCode = "0006";
 		}
 		
+		request.setAttribute("query", query);
+		request.setAttribute("response", result);
 	
-		return json;
+		return new Viewable("/takers.html");
 	}
 	
 }
