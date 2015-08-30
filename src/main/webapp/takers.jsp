@@ -57,6 +57,15 @@
 	  position: fixed;
 	  top: 0;
 	}
+	
+	table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+	}
+	th, td {
+	   padding: 5px;
+	 text-align: left;
+	}
     </style>
 <script type="text/javascript">
 		function confirmInput(){
