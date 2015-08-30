@@ -94,7 +94,7 @@ public class FoodSwapPost {
 	@GET
 	@Path("/pickFood")
 	@Produces("application/json")
-	public Viewable pickFood() {
+	public JSONArray pickFood() {
 	
 		Map<String, Object> result = null;
 		String statusMsg = "SUCCESS";
@@ -124,8 +124,8 @@ public class FoodSwapPost {
 	 		 statusCode = "0006";
 		}
 		
-		request.setAttribute("response", json);
-		return new Viewable("/takers.html");
+	
+		return json;
 	}
 	
 }
