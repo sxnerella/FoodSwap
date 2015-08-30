@@ -1,5 +1,6 @@
 
 <!DOCTYPE html>
+<%@ page import="java.util.*" %>
 <html lang="en">
   <head>
    <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -65,28 +66,7 @@
 			return true;
 		}
 		
-		
-		var $table = $('#table'),
-        selections = [];
 
-    $(function () {
-        $table.on('check.bs.table check-all.bs.table ' +
-                'uncheck.bs.table uncheck-all.bs.table', function (e, rows) {
-            var ids = $.map(!$.isArray(rows) ? [rows] : rows, function (row) {
-                    return row.id;
-                }),
-                func = $.inArray(e.type, ['check', 'check-all']) > -1 ? 'union' : 'difference';
-
-            selections = _[func](selections, ids);
-        });
-    });
-
-    function responseHandler(res) {
-        $.each(res.rows, function (i, row) {
-            row.state = $.inArray(row.id, selections) !== -1;
-        });
-        return res;
-    }
 	</script>							
 </head>
 
@@ -114,28 +94,49 @@
       <!-- Example row of columns -->
 <hr>
 <h2>Post Here</h2>
-<table 
-id="table"
-data-toggle="table"
-       data-url="http://foodswapweb.cfapps.io/rest/db/pickFood"
-       data-pagination="true"
-       data-side-pagination="server"
-       data-page-list="[5, 10, 20, 50, 100, 200]"
-       data-search="true"
-       data-height="300"
-data-response-handler="responseHandler"
-data-show-export="true"
-               data-click-to-select="true"
-               data-toolbar="#toolbar">
-    <thead>
-    <tr>
-        <th data-field="state" data-checkbox="true"></th>
-        <th data-field="id" data-align="right" data-sortable="true">Item ID</th>
-        <th data-field="name" data-align="center" data-sortable="true">Item Name</th>
-        <th data-field="price" data-sortable="true">Item Price</th>
-    </tr>
-    </thead>
-</table>
+
+
+<div id="main">
+		<h1>Execute DB Queries here</h1>
+		<form id="dbform"
+			action="rest/db/pickFood"
+			onsubmit="{return confirmInput()}">
+		 <input type="submit" />
+		</form>
+	</div>
+	<div>
+		Result: <span id="result">${response.message}</span>
+		<div>
+		
+			<%
+				Map<String, Object> result2 = (Map<String, Object>)request.getAttribute("response");
+				if(result2 != null && result2.get("result") != null){
+		
+						ArrayList<HashMap<String, Object>> rowList = (ArrayList<HashMap<String, Object>>)result2.get("result");
+						ArrayList<String> colList = (ArrayList<String>)result2.get("columnList");
+						boolean header = false;
+						%> <table id="ql_rest" cellspacing="0"> <tr> 
+						<%
+							for(String col: colList){
+								
+								%> <th><%= col %></th> <%
+							}
+						%> </tr> <%
+						for(HashMap<String, Object> row: rowList){
+							%> <tr> <%
+							for(String col: colList){
+								
+								%> <td><%= row.get(col) %></td> <%
+							}
+							%> </tr> <%
+						}
+						%> </table> <%
+				}
+			 %>
+
+		</div>
+
+	</div>
  
 	
     		<hr>
