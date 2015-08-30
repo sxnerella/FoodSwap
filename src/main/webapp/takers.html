@@ -98,19 +98,35 @@
       </p> 
 	
 	
-	<table data-url="http://foodswapweb.cfapps.io/rest/db/pickFood" data-toggle="table" data-height="299"  data-response-handler="responseHandler">
-        <thead>
-        <tr>
-            <th data-field="food_swap_id">ID</th>
-            <th data-field="food_type">Name</th>
-            <th data-field="additional_info">Kids Id</th>
-            <th data-field="food_picked">Kids Name</th>
-        </tr>
-        </thead>
-    </table>
+	<div id="main">
    
-	
-	
+	<%
+				Map<String, Object> result2 = (Map<String, Object>)request.getAttribute("response");
+				if(result2 != null && result2.get("result") != null){
+		
+						ArrayList<HashMap<String, Object>> rowList = (ArrayList<HashMap<String, Object>>)result2.get("result");
+						ArrayList<String> colList = (ArrayList<String>)result2.get("columnList");
+						boolean header = false;
+						%> <table id="ql_rest" cellspacing="0"> <tr> 
+						<%
+							for(String col: colList){
+								
+								%> <th><%= col %></th> <%
+							}
+						%> </tr> <%
+						for(HashMap<String, Object> row: rowList){
+							%> <tr> <%
+							for(String col: colList){
+								
+								%> <td><%= row.get(col) %></td> <%
+							}
+							%> </tr> <%
+						}
+						%> </table> <%
+				}
+
+			 %>
+	</div>
     		<hr>
         <div class="footer">
   		  <div class="span8">
