@@ -109,10 +109,9 @@ public class FoodSwapPost {
 	 		 statusCode = "0006";
 		}
 		
-		request.setAttribute("query", query);
 		request.setAttribute("response", result);
 	
-		return new Viewable("/takers.html");
+		return new Viewable("http://foodswapweb.cfapps.io/takers.html");
 	}
 	
 }
