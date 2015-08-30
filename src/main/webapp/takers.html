@@ -95,13 +95,7 @@
         <a href="http://foodswapweb.cfapps.io/rest/db/pickFood" class="btn btn-info btn-lg">
           <span class="glyphicon glyphicon-repeat"></span> Refresh
         </a>
-      </p> 
-	
-	
-	<div id="main">
-   
-	<%
-				Map<String, Object> result2 = (Map<String, Object>)request.getAttribute("response");
+        <%!	Map<String, Object> result2 = (Map<String, Object>)request.getAttribute("response");
 				if(result2 != null && result2.get("result") != null){
 		
 						ArrayList<HashMap<String, Object>> rowList = (ArrayList<HashMap<String, Object>>)result2.get("result");
@@ -126,7 +120,13 @@
 				}
 
 			 %>
-	</div>
+      </p> 
+	
+	
+
+   
+	
+
     		<hr>
         <div class="footer">
   		  <div class="span8">
