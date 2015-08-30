@@ -95,34 +95,20 @@
         <a href="http://foodswapweb.cfapps.io/rest/db/pickFood" class="btn btn-info btn-lg">
           <span class="glyphicon glyphicon-repeat"></span> Refresh
         </a>
-        <%!	Map<String, Object> result2 = (Map<String, Object>)request.getAttribute("response");
-				if(result2 != null && result2.get("result") != null){
-		
-						ArrayList<HashMap<String, Object>> rowList = (ArrayList<HashMap<String, Object>>)result2.get("result");
-						ArrayList<String> colList = (ArrayList<String>)result2.get("columnList");
-						boolean header = false;
-						%> <table id="ql_rest" cellspacing="0"> <tr> 
-						<%
-							for(String col: colList){
-								
-								%> <th><%= col %></th> <%
-							}
-						%> </tr> <%
-						for(HashMap<String, Object> row: rowList){
-							%> <tr> <%
-							for(String col: colList){
-								
-								%> <td><%= row.get(col) %></td> <%
-							}
-							%> </tr> <%
-						}
-						%> </table> <%
-				}
-
-			 %>
+       
       </p> 
 	
-	
+	 <div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading"><h3 class="panel-title">Stats</h3></div>
+                <c:forEach items="${request.getAttribute("response")}" var="entry">
+                    <label>${entry.key}, ${entry.value}</label>
+                </c:forEach>                
+        </div>      
+    </div>
+ </div>
 
    
 	
