@@ -98,6 +98,19 @@
       </p> 
 	
 	
+	<table data-url="http://foodswapweb.cfapps.io/rest/db/pickFood" data-toggle="table" data-height="299"  data-response-handler="responseHandler">
+        <thead>
+        <tr>
+            <th data-field="food_swap_id">ID</th>
+            <th data-field="food_type">Name</th>
+            <th data-field="additional_info">Kids Id</th>
+            <th data-field="food_picked">Kids Name</th>
+        </tr>
+        </thead>
+    </table>
+   
+	
+	
     		<hr>
         <div class="footer">
   		  <div class="span8">
@@ -106,7 +119,15 @@
   			
     	  </div>
   </div> <!-- /container -->
-
+ <script>
+        function responseHandler(res) {
+            var flatArray = [];
+            $.each(res, function(i, element) { 
+                flatArray.push(JSON.flatten(element));
+            });
+            return flatArray;
+        }
+    </script>
 	
   </body>
 </html>
