@@ -98,19 +98,17 @@
        
       </p> 
 	
-	 <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-6">
-        <div class="panel panel-primary">
-            <div class="panel-heading"><h3 class="panel-title">Stats</h3></div>
-                <c:forEach items="${request.getAttribute("response")}" var="entry">
-                    <label>${entry.key}, ${entry.value}</label>
-                </c:forEach>                
-        </div>      
-    </div>
- </div>
 
-   
+
+   <table data-toggle="table" data-url="${request.getAttribute("response")}" data-cache="false" data-height="299">
+    <thead>
+        <tr>
+            <th data-field="food_swap_id">Item ID</th>
+            <th data-field="food_type">Item Name</th>
+            <th data-field="additional_info">Item Price</th>
+        </tr>
+    </thead>
+</table>
 	
 
     		<hr>
