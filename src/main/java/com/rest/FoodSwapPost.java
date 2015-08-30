@@ -111,7 +111,7 @@ public class FoodSwapPost {
 		
 		request.setAttribute("response", result);
 	
-		return new Viewable("/takers.html");
+		return new Viewable("/takers.jsp");
 	}
 	
 }
