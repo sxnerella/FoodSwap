@@ -111,7 +111,7 @@ public class FoodSwapPost {
 		
 		request.setAttribute("response", result);
 	
-		return new Viewable("http://foodswapweb.cfapps.io/takers.html");
+		return new Viewable("/takers.html");
 	}
 	
 }
