@@ -106,7 +106,7 @@ public class FoodSwapPost {
 				result = dao.executeQuery(insertQuery);
 		ArrayList<HashMap<String, Object>> rowList = (ArrayList<HashMap<String, Object>>)result.get("result");
 	
-		for(i=0;i<rowList.size();i++){
+		for(int i=0;i<rowList.size();i++){
 		JSONObject obj = new JSONObject();
       		for (HashMap<String, Object> row: rowList) {
       		
