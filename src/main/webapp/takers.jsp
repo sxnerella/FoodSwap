@@ -129,11 +129,8 @@
 								
 								%> <td><%= row.get(col) %></td> <%
 							} 
-							
-						
-							
-							
-							%>	<td><div align="center"><a href="edit_ingredient.jsp?ingredient_slno=<%=ingredient_slno%>">Pick</a></div></td> </tr> <%
+	
+							%>	<td><a href="#"">Pick</a></td> </tr> <%
 						}
 						%> </table></div> <%
 				}
