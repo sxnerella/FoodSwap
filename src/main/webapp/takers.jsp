@@ -122,7 +122,7 @@
 								
 								%> <th><%= col %></th> <%
 							}
-						%> </tr> <%
+						%> <th>ACTION</th> <%
 						for(HashMap<String, Object> row: rowList){
 							%> <tr> <%
 							for(String col: colList){
