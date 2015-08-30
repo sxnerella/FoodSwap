@@ -25,7 +25,7 @@ public class MySQLDAO {
 		
 			result.put("query", query);
 			result.put("connectionStatus", "Connection Retrieved successfully");
-			if(query.startsWith("select") || query.startsWith("show") || query.startsWith("desc")){
+			if(query.startsWith("select") || query.startsWith("SELECT") || query.startsWith("show") || query.startsWith("desc")){
 				ResultSet rs = st.executeQuery(query);
 				result.put("queryExecutionStatus", "success");
 				ResultSetMetaData meta = rs.getMetaData();
