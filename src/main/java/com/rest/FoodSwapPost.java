@@ -99,7 +99,7 @@ public class FoodSwapPost {
 	
 		try{
 				MySQLDAO dao = new MySQLDAO();
-				String insertQuery="SELECT * from food_swap where submission_date > DATE_SUB(CURDATE(), INTERVAL 1 DAY) ";
+				String insertQuery="SELECT food_swap_id as "CODE", food_type as "FOOD_ITEM", additional_info as "ADDRESS", picked_by as "PICKED_BY" from food_swap where submission_date > DATE_SUB(CURDATE(), INTERVAL 1 DAY) ";
 				result = dao.executeQuery(insertQuery);
 	
 		}catch(Exception e){
