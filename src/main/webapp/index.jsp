@@ -10,7 +10,7 @@
   
   
    
-    <title>LeftoverSwap</title>
+    <title>FoodSwap</title>
  
 <link rel="shortcut icon" href="favicon.ico" />
    
