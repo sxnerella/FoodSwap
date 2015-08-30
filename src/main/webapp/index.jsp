@@ -88,7 +88,7 @@
                 <li><a href="#overview">Home</a></li>
                 <li><a href="benefits.html">Benefits</a></li>
                 <li><a href="givers.html">FoodGivers</a></li>
-				<li><a href="takers.html">FoodTakers</a></li>
+				<li><a href="takers.jsp">FoodTakers</a></li>
                 <li><a href="contact.html">Contact</a></li>
               </ul>
 
