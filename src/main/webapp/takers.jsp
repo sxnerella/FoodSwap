@@ -93,11 +93,11 @@
 		<form id="dbform"
 			action="${pageContext.request.contextPath}/rest/db/pickFood"
 			onsubmit="{return confirmInput()}">
-		 <input type="refresh" />
+		 <input type="submit" />
 		</form>
 	</div>
 	<div>
-		Result: <span id="result">${response.message}</span>
+		Result: <span id="result"></span>
 		<div>
 		
 			<%
