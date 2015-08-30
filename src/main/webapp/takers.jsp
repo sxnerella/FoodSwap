@@ -12,51 +12,13 @@
 		}
 	</script>
 </head>
-  <body data-spy="scroll" data-target=".navbar" data-offset="50">
-
-    <div class="container">
-
-      <div class="masthead"><div id="benefits"></div>
-		<div class="row-fluid">
-
-		
-		
-		
-			<div class="span10">
-				<img src="http://fridge.leftoverswap.com/img/swaplogonew90.png" width=75  height=75>
-			<div class="span11">
-			<h1>FoodSwap<h1>
-			</div>
-			</div>
-		</div>
-       <div class="navbar navbar-fixed-top">     
-            <div class="container">
-
-              <ul class="nav nav-tabs">
-                <li><a href="index.jsp">Home</a></li>
-                <li><a href="benefits.html">Benefits</a></li>
-                <li><a href="givers.html">FoodGivers</a></li>
-				<li><a href="takers.html">FoodTakers</a></li>
-                <li><a href="contact.html">Contact</a></li>
-              </ul>
-        </div><!-- /.navbar -->
-      </div>
-	</div>
-		<hr>
-        <div class="footer">
-  		  <div class="span8">
-         	   	<p>&copy;  FoodSwap Verizon Hackathon 2015. </p>
-  			</div>
-    	  </div>
-    </div> <!-- /container -->
+<body>
 	<div id="main">
 		<h1>Execute DB Queries here</h1>
 		<form id="dbform"
-			action="${pageContext.request.contextPath}/rest/db/submitQuery"
+			action="${pageContext.request.contextPath}/rest/db/pickFood"
 			onsubmit="{return confirmInput()}">
-			<textarea rows="1" cols="100" name="query"
-				placeholder="Entery Your Query Here">${query}</textarea>
-			<br /> <input type="submit" />
+		 <input type="submit" />
 		</form>
 	</div>
 	<div>
@@ -87,6 +49,7 @@
 						}
 						%> </table> <%
 				}
+
 			 %>
 
 		</div>
