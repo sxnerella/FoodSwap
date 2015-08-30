@@ -7,7 +7,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
-
+import java.util.ArrayList;
 import com.sun.jersey.spi.resource.Singleton;
 import java.util.HashMap;
 import java.util.Map;
@@ -106,14 +106,15 @@ public class FoodSwapPost {
 				result = dao.executeQuery(insertQuery);
 		ArrayList<HashMap<String, Object>> rowList = (ArrayList<HashMap<String, Object>>)result.get("result");
 	
-
+		for(i=0;i<rowList.size();i++){
+		JSONObject obj = new JSONObject();
       		for (HashMap<String, Object> row: rowList) {
-      		JSONObject obj = new JSONObject();
+      		
         	obj.put("food_swap_id", row.get("food_swap_id"));
          	obj.put("food_type", row.get("food_type"));
        		obj.put("additional_info", row.get("additional_info"));
 			 }
-      		json.put(obj);
+      		json.put(obj);}
 		
 		
 		}catch(Exception e){
