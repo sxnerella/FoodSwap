@@ -102,7 +102,7 @@
 		<form id="dbform"
 			action="${pageContext.request.contextPath}/rest/db/pickFood"
 			onsubmit="{return confirmInput()}">
-		 <input type="submit" />
+		 <input type="submit" value="Refresh" />
 		</form>
 	</div>
 	<div>
