@@ -1,6 +1,6 @@
 language: java
 sudo: true
-deploy:
+ deploy:
  edge: true
  provider: cloudfoundry
  username: aris.s.kumar@verizon.com
